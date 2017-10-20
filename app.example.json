@@ -1,0 +1,39 @@
+{
+  "host": {
+    "port": 8080
+  },
+  "graphQL" :{
+    "debug":true
+  },
+  "database":{
+    "type":"mysql",
+    "mysql" : {
+      "name":"",
+      "login":"",
+      "password":""
+    },
+    "postgres":{
+      "user":"",
+      "host":"",
+      "name":"",
+      "password":"",
+      "sslmode":""
+    },
+    "sqlite3":{
+      "path":""
+    },
+    "sqlServer":{
+      "username":"",
+      "host":"",
+      "password":"",
+      "name":""
+    }
+  },
+  "auth":{
+    "jwt_token":"global"
+  },
+  "l18n" :{
+    "locale":"en-US"
+  }
+
+}
