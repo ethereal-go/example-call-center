@@ -1,0 +1,5 @@
+production:
+    dialect: mysql
+    datasource: root@/dbname?parseTime=true
+    dir: migrations/mysql
+    table: migrations
