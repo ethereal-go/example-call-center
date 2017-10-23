@@ -3,9 +3,9 @@ package database
 import "time"
 
 type Call struct {
-	ID                  uint   `json:"id";gorm:"primary_key"`
-	From                User   `json:"from"`
-	FromID              int    `gorm:"index"`
+	ID                  int `json:"id";gorm:"primary_key"`
+	From                User
+	FromID              int    `gorm:"index";sql:"type:int REFERENCES users(id)`
 	To                  User   `json:"to"`
 	ToID                int    `gorm:"index"`
 	OutgoingIncoming    string `json:"outgoing_incoming"`
@@ -15,3 +15,4 @@ type Call struct {
 	UpdatedAt           time.Time
 	DeletedAt           *time.Time `sql:"index"`
 }
+

@@ -3,3 +3,9 @@ production:
     datasource: root@/dbname?parseTime=true
     dir: migrations/mysql
     table: migrations
+development:
+    dialect: mysql
+    datasource: test.db
+    dir: migrations/mysql
+    table: migrations
+    datasource: root@/dbname?parseTime=true
