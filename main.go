@@ -8,8 +8,8 @@ import  (
 )
 
 func main() {
-	userSeed := seed.UsersSeed{}
-	userSeed.Run(ethereal.ConstructorDb())
+	roleSeed := seed.RolesSeed{}
+	roleSeed.Run(ethereal.ConstructorDb())
 
 
 	ethereal.Queries().Add("users", &base.UserField).Add("roles", &base.RoleField)
