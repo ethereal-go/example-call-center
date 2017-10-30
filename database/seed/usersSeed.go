@@ -5,15 +5,22 @@ import (
 	"github.com/jinzhu/gorm"
 )
 
-type UsersSeed struct {}
+type UsersSeed struct{}
 
 func (seed *UsersSeed) Run(db *gorm.DB) {
-	user := database.User{}
 
-	user.Email = "test@sc.ru"
-	user.Phone = "79299344312"
-	user.Name = "Jo"
-
-	//db.NewRecord(user)
-	db.Create(&user)
+	var seeder = []*database.User{
+		{
+			Email: "a@flskd.com",
+			Phone: "a@flskd.com",
+			Name:  "Agaria",
+		},
+	}
+	for index := range seeder {
+		user := database.User{}
+		db.Where("name = ?", seeder[index].Name).First(&role)
+		if user.ID == 0 {
+			db.Create(&seeder[index])
+		}
+	}
 }

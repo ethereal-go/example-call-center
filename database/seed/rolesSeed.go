@@ -5,15 +5,20 @@ import (
 	"github.com/jinzhu/gorm"
 )
 
-type RolesSeed struct {}
+type RolesSeed struct{}
 
 func (seed *RolesSeed) Run(db *gorm.DB) {
-	role := database.Role{}
 
-	role.Name = "user"
-	role.DisplayName = "This is user"
+	var seeder = []*database.Role{
+		{Name: "user", DisplayName: "This is user", Description: "Normal user"},
+		{Name: "admin", DisplayName: "This is admin", Description: "Normal admin"},
+	}
 
-
-	//db.NewRecord(user)
-	db.Create(&role)
+	for index := range seeder {
+		role := database.Role{}
+		db.Where("name = ?", seeder[index].Name).First(&role)
+		if role.ID == 0 {
+			db.Create(&seeder[index])
+		}
+	}
 }

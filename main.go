@@ -1,6 +1,6 @@
 package main
 
-import  (
+import (
 	"github.com/ethereal-go/authJwtToken"
 	"github.com/ethereal-go/base"
 	"github.com/ethereal-go/ethereal"
@@ -10,7 +10,6 @@ import  (
 func main() {
 	roleSeed := seed.RolesSeed{}
 	roleSeed.Run(ethereal.ConstructorDb())
-
 
 	ethereal.Queries().Add("users", &base.UserField).Add("roles", &base.RoleField)
 	ethereal.Mutations().Add("createUsers", &base.CreateUser).Add("token", &authJwtToken.CreateJWTToken)
